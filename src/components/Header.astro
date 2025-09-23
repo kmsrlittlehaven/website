@@ -1,0 +1,271 @@
+---
+
+---
+<header
+  class="backdrop-blur-md bg-white/90 border-b border-gray-100 sticky top-0 z-50"
+  role="banner"
+>
+  <div class="mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo and Brand -->
+      <div>
+        <a
+          href="/"
+          class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded-lg p-1.5 -m-1.5 transition-all duration-200"
+          aria-label="The Little Haven - Home"
+        >
+          <div
+            class="flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-hover:rotate-3"
+          >
+            <img
+              src="/logo.png"
+              alt="The Little Haven Logo"
+              class="w-15 h-15 drop-shadow-sm"
+            />
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav
+        class="hidden md:flex items-center"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <div class="flex items-center space-x-1">
+          <a
+            href="/"
+            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
+          >
+            Home
+          </a>
+          <a
+            href="/about"
+            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
+          >
+            About Us
+          </a>
+          <a
+            href="/facilities"
+            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
+          >
+            Facilities
+          </a>
+          <a
+            href="/contact"
+            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
+          >
+            Contact Us
+          </a>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="md:hidden relative p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all duration-200"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-6 h-6 transition-transform duration-200"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            class="menu-line-1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16"
+          />
+          <path
+            class="menu-line-2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 12h16"
+          />
+          <path
+            class="menu-line-3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div
+      id="mobile-menu"
+      class="md:hidden opacity-0 invisible translate-y-1 transition-all duration-300 ease-out border-t border-gray-100"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
+      <div class="py-4 space-y-1">
+        <a
+          href="/"
+          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+        >
+          Home
+        </a>
+        <a
+          href="/about"
+          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+        >
+          About Us
+        </a>
+        <a
+          href="/facilities"
+          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+        >
+          Facilities
+        </a>
+        <a
+          href="/contact"
+          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  interface MenuElements {
+    button: HTMLButtonElement;
+    menu: HTMLDivElement;
+    lines: NodeListOf<SVGPathElement>;
+  }
+
+  class MobileMenuToggle {
+    private elements: MenuElements | null = null;
+    private isOpen = false;
+
+    constructor() {
+      this.init();
+    }
+
+    private init(): void {
+      document.addEventListener("DOMContentLoaded", () => {
+        this.setupElements();
+        this.bindEvents();
+      });
+    }
+
+    private setupElements(): void {
+      const button = document.getElementById("mobile-menu-button") as HTMLButtonElement;
+      const menu = document.getElementById("mobile-menu") as HTMLDivElement;
+      const lines = button?.querySelectorAll("path") as NodeListOf<SVGPathElement>;
+
+      if (button && menu && lines.length >= 3) {
+        this.elements = { button, menu, lines };
+      }
+    }
+
+    private bindEvents(): void {
+      if (!this.elements) return;
+
+      const { button, menu } = this.elements;
+
+      button.addEventListener("click", this.toggleMenu.bind(this));
+      
+      document.addEventListener("click", (event: Event) => {
+        if (this.isOpen && 
+            !button.contains(event.target as Node) && 
+            !menu.contains(event.target as Node)) {
+          this.closeMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (event: KeyboardEvent) => {
+        if (event.key === "Escape" && this.isOpen) {
+          this.closeMenu();
+          button.focus();
+        }
+      });
+    }
+
+    private toggleMenu(): void {
+      this.isOpen ? this.closeMenu() : this.openMenu();
+    }
+
+    private openMenu(): void {
+      if (!this.elements) return;
+
+      const { button, menu, lines } = this.elements;
+      
+      this.isOpen = true;
+      button.setAttribute("aria-expanded", "true");
+      
+      // Animate menu appearance
+      menu.classList.remove("opacity-0", "invisible", "translate-y-1");
+      menu.classList.add("opacity-100", "visible", "translate-y-0");
+      
+      // Animate hamburger to X
+      lines[0].setAttribute("d", "M6 18L18 6");
+      lines[1].style.opacity = "0";
+      lines[2].setAttribute("d", "M6 6l12 12");
+    }
+
+    private closeMenu(): void {
+      if (!this.elements) return;
+
+      const { button, menu, lines } = this.elements;
+      
+      this.isOpen = false;
+      button.setAttribute("aria-expanded", "false");
+      
+      // Animate menu disappearance
+      menu.classList.remove("opacity-100", "visible", "translate-y-0");
+      menu.classList.add("opacity-0", "invisible", "translate-y-1");
+      
+      // Animate X back to hamburger
+      lines[0].setAttribute("d", "M4 6h16");
+      lines[1].style.opacity = "1";
+      lines[2].setAttribute("d", "M4 18h16");
+    }
+  }
+
+  // Initialize mobile menu
+  new MobileMenuToggle();
+</script>
+
+<style>
+  /* Custom animations for smooth interactions */
+  #mobile-menu-button svg {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #mobile-menu-button:hover svg {
+    transform: scale(1.05);
+  }
+  
+  #mobile-menu-button path {
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+
+  /* Enhanced focus styles */
+  header a:focus-visible,
+  header button:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgb(20 184 166 / 0.5);
+  }
+
+  /* Backdrop blur fallback for older browsers */
+  @supports not (backdrop-filter: blur(12px)) {
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+  }
+</style>
