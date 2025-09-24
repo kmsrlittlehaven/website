@@ -1,5 +1,6 @@
 {
-  "name": "my-astro-app",
+  // wrangler.jsonc
+  "name": "littlehaven",
   "compatibility_date": "2025-09-23",
   "assets": {
     "directory": "./dist"
