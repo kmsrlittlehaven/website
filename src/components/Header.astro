@@ -1,8 +1,17 @@
 ---
+const navLinks = [
+  { href: "/", text: "Home" },
+  { href: "/about", text: "About Us" },
+  { href: "/facilities", text: "Facilities" },
+  { href: "/contact", text: "Contact Us" },
+];
 
+const { pathname } = Astro.url;
 ---
+
 <header
-  class="backdrop-blur-md bg-white/90 border-b border-gray-100 sticky top-0 z-50"
+  id="main-header"
+  class="backdrop-blur-md bg-white/90 border-b border-gray-100 sticky top-0 z-50 transition-all duration-300"
   role="banner"
 >
   <div class="mx-auto px-6 lg:px-8">
@@ -11,7 +20,7 @@
       <div>
         <a
           href="/"
-          class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 rounded-lg p-1.5 -m-1.5 transition-all duration-200"
+          class="flex items-center gap-3 group rounded-lg p-1.5 -m-1.5 transition-all duration-200"
           aria-label="The Little Haven - Home"
         >
           <div
@@ -26,246 +35,298 @@
         </a>
       </div>
 
-      <!-- Desktop Navigation -->
-      <nav
-        class="hidden md:flex items-center"
-        role="navigation"
-        aria-label="Main navigation"
-      >
-        <div class="flex items-center space-x-1">
-          <a
-            href="/"
-            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
-          >
-            Home
-          </a>
-          <a
-            href="/about"
-            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
-          >
-            About Us
-          </a>
-          <a
-            href="/facilities"
-            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
-          >
-            Facilities
-          </a>
-          <a
-            href="/contact"
-            class="relative px-4 py-2 text-gray-700 hover:text-teal-600 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 before:absolute before:inset-x-4 before:bottom-0 before:h-0.5 before:bg-teal-500 before:scale-x-0 hover:before:scale-x-100 before:transition-transform before:duration-200"
-          >
-            Contact Us
-          </a>
-        </div>
-      </nav>
-
-      <!-- Mobile Menu Button -->
+      <!-- Hamburger Button (Mobile Only) -->
       <button
         id="mobile-menu-button"
-        type="button"
-        class="md:hidden relative p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-all duration-200"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
+        class="md:hidden relative z-50 w-10 h-10 rounded-lg p-2 transition-all duration-200"
         aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
       >
         <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-6 h-6 transition-transform duration-200"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            class="menu-line-1"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16"
-          />
-          <path
-            class="menu-line-2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 12h16"
-          />
-          <path
-            class="menu-line-3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 18h16"
-          />
-        </svg>
+        <!-- Hamburger Lines -->
+        <div class="block w-6 h-6 relative mx-auto">
+          <span
+            class="hamburger-line absolute h-0.5 w-6 bg-gray-700 rounded-full transition-all duration-300 ease-in-out transform origin-center"
+            style="top: 7px;"
+          ></span>
+          <span
+            class="hamburger-line absolute h-0.5 w-6 bg-gray-700 rounded-full transition-all duration-300 ease-in-out transform origin-center"
+            style="top: 11px;"
+          ></span>
+          <span
+            class="hamburger-line absolute h-0.5 w-6 bg-gray-700 rounded-full transition-all duration-300 ease-in-out transform origin-center"
+            style="top: 15px;"
+          ></span>
+        </div>
       </button>
-    </div>
 
-    <!-- Mobile Navigation Menu -->
-    <div
-      id="mobile-menu"
-      class="md:hidden opacity-0 invisible translate-y-1 transition-all duration-300 ease-out border-t border-gray-100"
-      role="navigation"
-      aria-label="Mobile navigation"
-    >
-      <div class="py-4 space-y-1">
-        <a
-          href="/"
-          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+      <!-- Navigation -->
+      <nav
+        id="main-nav"
+        class="fixed inset-0 z-40 bg-white/95 backdrop-blur-md p-8 pt-28 transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:inset-auto md:z-auto md:bg-transparent md:backdrop-blur-none md:p-0 md:translate-x-0 md:flex md:items-center"
+        role="navigation"
+        aria-label="Main navigation"
+        aria-hidden="true"
+      >
+        <!-- Mobile Menu Close Button -->
+        <div
+          class="flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-1 -mt-[6rem] md:-mt-0"
         >
-          Home
-        </a>
-        <a
-          href="/about"
-          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
-        >
-          About Us
-        </a>
-        <a
-          href="/facilities"
-          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
-        >
-          Facilities
-        </a>
-        <a
-          href="/contact"
-          class="block px-4 py-3 text-gray-700 hover:text-teal-600 hover:bg-teal-50/50 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
-        >
-          Contact Us
-        </a>
-      </div>
+          {
+            navLinks.map((link, index) => {
+              const isActive = pathname === link.href;
+              return (
+                <a
+                  href={link.href}
+                  class:list={[
+                    "mobile-nav-link block text-2xl font-medium transition-all duration-200 transform translate-y-4 opacity-0 rounded-lg p-2 md:relative md:p-0 md:px-4 md:py-2 md:text-base md:translate-y-0 md:opacity-100 md:before:absolute md:before:inset-x-4 md:before:bottom-0 md:before:h-0.5 md:before:bg-teal-500 md:before:transition-transform md:before:duration-200",
+                    isActive ? "text-teal-600 md:before:scale-x-100" : "text-gray-700 hover:text-teal-600 md:before:scale-x-0 md:hover:before:scale-x-100",
+                  ]}
+                  style={`transition-delay: ${index * 50}ms`}
+                >
+                  {link.text}
+                </a>
+              );
+            })
+          }
+        </div>
+
+        <!-- Mobile Navigation Background Overlay -->
+        <div class="md:hidden absolute inset-0 -z-10 bg-gradient-to-b from-white/95 to-white/90 pb-[20rem]"></div>
+      </nav>
+
+      <!-- Mobile Menu Backdrop -->
+      <div
+        id="mobile-menu-backdrop"
+        class="md:hidden fixed inset-0 bg-gray-900/50 backdrop-blur-sm opacity-0 invisible transition-all duration-300 ease-in-out z-30"
+        aria-hidden="true"
+      ></div>
     </div>
   </div>
 </header>
 
 <script>
-  interface MenuElements {
-    button: HTMLButtonElement;
-    menu: HTMLDivElement;
-    lines: NodeListOf<SVGPathElement>;
-  }
-
-  class MobileMenuToggle {
-    private elements: MenuElements | null = null;
-    private isOpen = false;
+  // Mobile menu functionality
+  class MobileMenu {
+    private menuButton: HTMLElement | null;
+    private closeButton: HTMLElement | null;
+    private nav: HTMLElement | null;
+    private backdrop: HTMLElement | null;
+    private navLinks: NodeListOf<Element>;
+    private hamburgerLines: NodeListOf<Element>;
+    private isOpen: boolean;
 
     constructor() {
+      this.menuButton = document.getElementById('mobile-menu-button');
+      this.closeButton = document.getElementById('mobile-menu-close');
+      this.nav = document.getElementById('main-nav');
+      this.backdrop = document.getElementById('mobile-menu-backdrop');
+      this.navLinks = document.querySelectorAll('.mobile-nav-link');
+      this.hamburgerLines = document.querySelectorAll('.hamburger-line');
+      this.isOpen = false;
+
       this.init();
     }
 
     private init(): void {
-      document.addEventListener("DOMContentLoaded", () => {
-        this.setupElements();
-        this.bindEvents();
+      if (!this.menuButton || !this.nav) return;
+
+      // Event listeners
+      this.menuButton.addEventListener('click', () => this.toggle());
+      this.closeButton?.addEventListener('click', () => this.close());
+      this.backdrop?.addEventListener('click', () => this.close());
+      
+      // Close menu when clicking nav links (mobile)
+      this.navLinks.forEach((link: Element) => {
+        link.addEventListener('click', () => this.close());
+      });
+
+      // Handle escape key
+      document.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.close();
+        }
+      });
+
+      // Close menu on window resize to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768 && this.isOpen) {
+          this.close();
+        }
       });
     }
 
-    private setupElements(): void {
-      const button = document.getElementById("mobile-menu-button") as HTMLButtonElement;
-      const menu = document.getElementById("mobile-menu") as HTMLDivElement;
-      const lines = button?.querySelectorAll("path") as NodeListOf<SVGPathElement>;
+    private toggle(): void {
+      this.isOpen ? this.close() : this.open();
+    }
 
-      if (button && menu && lines.length >= 3) {
-        this.elements = { button, menu, lines };
+    private open(): void {
+      if (this.isOpen || !this.nav || !this.menuButton) return;
+      
+      this.isOpen = true;
+      
+      // Update ARIA attributes
+      this.menuButton.setAttribute('aria-expanded', 'true');
+      this.nav.setAttribute('aria-hidden', 'false');
+      
+      // Transform hamburger to X
+      this.animateHamburgerToX();
+      
+      // Show navigation
+      this.nav.classList.remove('-translate-x-full');
+      this.nav.classList.add('translate-x-0');
+      
+      // Show backdrop
+      this.backdrop?.classList.remove('opacity-0', 'invisible');
+      this.backdrop?.classList.add('opacity-100', 'visible');
+      
+      // Animate nav links with stagger
+      setTimeout(() => {
+        this.navLinks.forEach((link: Element, index: number) => {
+          setTimeout(() => {
+            link.classList.remove('translate-y-4', 'opacity-0');
+            link.classList.add('translate-y-0', 'opacity-100');
+          }, index * 75);
+        });
+      }, 150);
+      
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+      
+      // Focus trap
+      this.trapFocus();
+    }
+
+    private close(): void {
+      if (!this.isOpen || !this.nav || !this.menuButton) return;
+      
+      this.isOpen = false;
+      
+      // Update ARIA attributes
+      this.menuButton.setAttribute('aria-expanded', 'false');
+      this.nav.setAttribute('aria-hidden', 'true');
+      
+      // Transform X back to hamburger
+      this.animateXToHamburger();
+      
+      // Hide nav links
+      this.navLinks.forEach((link: Element) => {
+        link.classList.add('translate-y-4', 'opacity-0');
+        link.classList.remove('translate-y-0', 'opacity-100');
+      });
+      
+      // Hide navigation after links animation
+      setTimeout(() => {
+        this.nav?.classList.add('-translate-x-full');
+        this.nav?.classList.remove('translate-x-0');
+      }, 200);
+      
+      // Hide backdrop
+      this.backdrop?.classList.add('opacity-0', 'invisible');
+      this.backdrop?.classList.remove('opacity-100', 'visible');
+      
+      // Restore body scroll
+      document.body.style.overflow = '';
+      
+      // Return focus to menu button
+      this.menuButton.focus();
+    }
+
+    private animateHamburgerToX(): void {
+      if (this.hamburgerLines.length >= 3) {
+        const lines = this.hamburgerLines as NodeListOf<HTMLElement>;
+        // Top line: rotate and move to center
+        lines[0].style.transform = 'rotate(45deg) translate(3px, 3px)';
+        // Middle line: fade out
+        lines[1].style.opacity = '0';
+        lines[1].style.transform = 'scale(0)';
+        // Bottom line: rotate and move to center
+        lines[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
       }
     }
 
-    private bindEvents(): void {
-      if (!this.elements) return;
+    private animateXToHamburger(): void {
+      if (this.hamburgerLines.length >= 3) {
+        const lines = this.hamburgerLines as NodeListOf<HTMLElement>;
+        // Reset all lines
+        lines[0].style.transform = 'rotate(0) translate(0, 0)';
+        lines[1].style.opacity = '1';
+        lines[1].style.transform = 'scale(1)';
+        lines[2].style.transform = 'rotate(0) translate(0, 0)';
+      }
+    }
 
-      const { button, menu } = this.elements;
-
-      button.addEventListener("click", this.toggleMenu.bind(this));
+    private trapFocus(): void {
+      if (!this.nav) return;
       
-      document.addEventListener("click", (event: Event) => {
-        if (this.isOpen && 
-            !button.contains(event.target as Node) && 
-            !menu.contains(event.target as Node)) {
-          this.closeMenu();
+      // Simple focus trap for accessibility
+      const focusableElements = this.nav.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      ) as NodeListOf<HTMLElement>;
+      
+      if (focusableElements.length === 0) return;
+      
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      
+      // Focus first element
+      setTimeout(() => firstElement.focus(), 300);
+      
+      // Handle tab navigation
+      document.addEventListener('keydown', this.handleTabKey);
+    }
+
+    private handleTabKey = (e: KeyboardEvent): void => {
+      if (!this.isOpen || !this.nav || e.key !== 'Tab') return;
+      
+      const focusableElements = this.nav.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      ) as NodeListOf<HTMLElement>;
+      
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
         }
-      });
-
-      document.addEventListener("keydown", (event: KeyboardEvent) => {
-        if (event.key === "Escape" && this.isOpen) {
-          this.closeMenu();
-          button.focus();
+      } else {
+        if (document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
         }
-      });
-    }
-
-    private toggleMenu(): void {
-      this.isOpen ? this.closeMenu() : this.openMenu();
-    }
-
-    private openMenu(): void {
-      if (!this.elements) return;
-
-      const { button, menu, lines } = this.elements;
-      
-      this.isOpen = true;
-      button.setAttribute("aria-expanded", "true");
-      
-      // Animate menu appearance
-      menu.classList.remove("opacity-0", "invisible", "translate-y-1");
-      menu.classList.add("opacity-100", "visible", "translate-y-0");
-      
-      // Animate hamburger to X
-      lines[0].setAttribute("d", "M6 18L18 6");
-      lines[1].style.opacity = "0";
-      lines[2].setAttribute("d", "M6 6l12 12");
-    }
-
-    private closeMenu(): void {
-      if (!this.elements) return;
-
-      const { button, menu, lines } = this.elements;
-      
-      this.isOpen = false;
-      button.setAttribute("aria-expanded", "false");
-      
-      // Animate menu disappearance
-      menu.classList.remove("opacity-100", "visible", "translate-y-0");
-      menu.classList.add("opacity-0", "invisible", "translate-y-1");
-      
-      // Animate X back to hamburger
-      lines[0].setAttribute("d", "M4 6h16");
-      lines[1].style.opacity = "1";
-      lines[2].setAttribute("d", "M4 18h16");
+      }
     }
   }
 
-  // Initialize mobile menu
-  new MobileMenuToggle();
+  // Initialize mobile menu when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new MobileMenu();
+  });
 </script>
 
 <style>
-  /* Custom animations for smooth interactions */
-  #mobile-menu-button svg {
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  #mobile-menu-button:hover svg {
-    transform: scale(1.05);
-  }
-  
-  #mobile-menu-button path {
-    transition: all 0.3s ease-in-out;
-    transform-origin: center;
+  /* Ensure smooth animations */
+  .mobile-nav-link {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   }
 
-  /* Enhanced focus styles */
-  header a:focus-visible,
-  header button:focus-visible {
-    outline: 2px solid transparent;
+  /* Enhanced focus styles for better accessibility */
+  #mobile-menu-button:focus-visible,
+  #mobile-menu-close:focus-visible {
+    outline: 2px solid #14b8a6;
     outline-offset: 2px;
-    box-shadow: 0 0 0 2px rgb(20 184 166 / 0.5);
   }
 
-  /* Backdrop blur fallback for older browsers */
-  @supports not (backdrop-filter: blur(12px)) {
-    header {
-      background-color: rgba(255, 255, 255, 0.95);
-    }
+  /* Prevent text selection on hamburger lines */
+  .hamburger-line {
+    user-select: none;
+  }
+
+  /* Smooth scrolling when menu closes */
+  html {
+    scroll-behavior: smooth;
   }
 </style>

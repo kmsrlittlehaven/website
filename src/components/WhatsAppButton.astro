@@ -1,0 +1,266 @@
+---
+import "../styles/global.css";
+---
+
+<aside 
+  class="fixed bottom-6 right-6 z-50 animate-fade-in-delayed"
+  id="whatsapp-widget"
+  role="complementary"
+  aria-label="WhatsApp chat support"
+>
+  <!-- Main Chat Button -->
+  <button
+    class="group relative size-14 bg-emerald-500 hover:bg-emerald-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-emerald-500/30 active:scale-95 cursor-pointer"
+    id="whatsapp-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="whatsapp-popup"
+    aria-label="Open WhatsApp chat"
+  >
+    <!-- WhatsApp Icon -->
+    <svg 
+      viewBox="0 0 24 24" 
+      class="size-7 fill-white transition-transform duration-200 group-hover:scale-110 absolute inset-0 m-auto"
+      aria-hidden="true"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    
+    <!-- Notification Dot -->
+    <span 
+      class="absolute -top-1 -right-1 size-4 bg-red-500 rounded-full animate-notification-pulse"
+      id="notification-badge"
+      aria-hidden="true"
+    >
+      <span class="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-75"></span>
+    </span>
+  </button>
+
+  <!-- Chat Popup -->
+  <div
+    class="absolute bottom-16 right-0 w-80 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 scale-95 translate-y-2 transition-all duration-200 ease-out pointer-events-none"
+    id="whatsapp-popup"
+    role="dialog"
+    aria-labelledby="chat-title"
+    aria-describedby="chat-description"
+    tabindex="-1"
+  >
+    <!-- Header -->
+    <header class="flex items-center justify-between p-5 border-b border-gray-100">
+      <div class="flex items-center gap-3">
+        <div class="size-10 bg-emerald-500 rounded-full flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="size-5 fill-white" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900 m-0" id="chat-title">
+            Chat with us
+          </h3>
+          <p class="text-sm text-emerald-600 m-0">We're online</p>
+        </div>
+      </div>
+      
+      <button
+        class="size-8 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
+        id="close-popup"
+        type="button"
+        aria-label="Close chat"
+      >
+        <svg class="size-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Content -->
+    <div class="p-5">
+      <p class="text-gray-600 mb-4 text-sm leading-relaxed" id="chat-description">
+        Have questions? We're here to help! Send us a message and we'll respond as soon as possible.
+      </p>
+      
+      <a
+        href="https://wa.me/+919895011185"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-center justify-center gap-3 w-full py-3 px-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-medium transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-emerald-500/30 active:scale-[0.98]"
+        aria-label="Start WhatsApp chat (opens in new tab)"
+      >
+        <svg viewBox="0 0 24 24" class="size-5 fill-white transition-transform duration-200 group-hover:scale-110" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Start Chat
+        <svg class="size-4 text-white/80 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</aside>
+
+<style>
+  /* Custom animations for better performance */
+  @keyframes fade-in-delayed {
+    from {
+      opacity: 0;
+      transform: scale(0.8) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  @keyframes notification-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+  
+  .animate-fade-in-delayed {
+    opacity: 0;
+    animation: fade-in-delayed 0.6s ease-out 5s forwards;
+  }
+  
+  .animate-notification-pulse {
+    animation: notification-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Popup states */
+  #whatsapp-popup.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* Focus management for accessibility */
+  #whatsapp-popup:focus-within {
+    outline: none;
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  button, a {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Enhanced mobile responsiveness */
+  @media (max-width: 480px) {
+    #whatsapp-popup {
+      right: -0.5rem;
+      width: calc(100vw - 2rem);
+      max-width: none;
+    }
+  }
+</style>
+
+<script>
+  // Modern, efficient JavaScript with better error handling
+  class WhatsAppWidget {
+    private elements: {
+      container: HTMLElement | null;
+      toggle: HTMLButtonElement | null;
+      popup: HTMLElement | null;
+      closeBtn: HTMLButtonElement | null;
+      badge: HTMLElement | null;
+    };
+    
+    private isOpen: boolean = false;
+
+    constructor() {
+      this.elements = {
+        container: document.getElementById('whatsapp-widget'),
+        toggle: document.getElementById('whatsapp-toggle') as HTMLButtonElement,
+        popup: document.getElementById('whatsapp-popup'),
+        closeBtn: document.getElementById('close-popup') as HTMLButtonElement,
+        badge: document.getElementById('notification-badge')
+      };
+      
+      this.init();
+    }
+
+    private init(): void {
+      this.bindEvents();
+      this.setupAccessibility();
+    }
+
+    private bindEvents(): void {
+      // Toggle popup
+      this.elements.toggle?.addEventListener('click', this.togglePopup.bind(this));
+      
+      // Close popup
+      this.elements.closeBtn?.addEventListener('click', this.closePopup.bind(this));
+      
+      // Close on outside click
+      document.addEventListener('click', this.handleOutsideClick.bind(this));
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', this.handleKeydown.bind(this));
+    }
+
+    private setupAccessibility(): void {
+      // Focus management for screen readers
+      this.elements.popup?.setAttribute('tabindex', '-1');
+    }
+
+    private togglePopup(): void {
+      if (this.isOpen) {
+        this.closePopup();
+      } else {
+        this.openPopup();
+      }
+    }
+
+    private openPopup(): void {
+      if (!this.elements.popup || !this.elements.toggle) return;
+      
+      this.isOpen = true;
+      this.elements.popup.classList.add('show');
+      this.elements.toggle.setAttribute('aria-expanded', 'true');
+      
+      // Focus management
+      setTimeout(() => {
+        this.elements.popup?.focus();
+      }, 150);
+    }
+
+    private closePopup(): void {
+      if (!this.elements.popup || !this.elements.toggle) return;
+      
+      this.isOpen = false;
+      this.elements.popup.classList.remove('show');
+      this.elements.toggle.setAttribute('aria-expanded', 'false');
+      
+      // Return focus to toggle button
+      this.elements.toggle.focus();
+    }
+
+    private handleOutsideClick(event: MouseEvent): void {
+      if (!this.isOpen || !this.elements.container) return;
+      
+      const target = event.target as Node;
+      if (!this.elements.container.contains(target)) {
+        this.closePopup();
+      }
+    }
+
+    private handleKeydown(event: KeyboardEvent): void {
+      if (!this.isOpen) return;
+      
+      if (event.key === 'Escape') {
+        this.closePopup();
+        event.preventDefault();
+      }
+    }
+  }
+
+  // Initialize when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    new WhatsAppWidget();
+  });
+</script>
