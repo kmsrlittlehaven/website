@@ -1,0 +1,51 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"div"> {
+  title: string;
+  icon: {
+    path: string;
+    colorClass: string;
+    bgClass: string;
+  };
+}
+
+const { title, icon, class: className, ...rest } = Astro.props;
+---
+
+<div
+  class:list={[
+    "group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200/60",
+    "shadow-md hover:shadow-lg",
+    "p-8 sm:p-10",
+    "transition-all duration-500 ease-out",
+    "hover:-translate-y-0.5",
+    className,
+  ]}
+  {...rest}
+  role="article"
+  aria-labelledby={`service-${title.toLowerCase().replace(/\s+/g, '-')}`}
+>
+  <div
+    class:list={[
+      "flex items-center justify-center w-16 h-16 rounded-xl mb-5",
+      "group-hover:scale-105 transition-transform duration-500 ease-out",
+      icon.bgClass,
+    ]}
+    aria-hidden="true"
+  >
+    <svg
+      class:list={["w-8 h-8", icon.colorClass]}
+      fill="currentColor"
+      viewBox="0 0 20 20"
+    >
+      <path fill-rule="evenodd" d={icon.path} clip-rule="evenodd"></path>
+    </svg>
+  </div>
+  <h3 
+    id={`service-${title.toLowerCase().replace(/\s+/g, '-')}`}
+    class="text-xl font-semibold text-slate-900 leading-snug tracking-tight"
+  >
+    {title}
+  </h3>
+</div>

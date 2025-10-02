@@ -9,324 +9,238 @@ const pageDescription =
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-    <section
-        class="relative bg-gradient-to-b from-[#F7F7F7] to-white py-24 md:py-32"
-    >
-        <!-- Subtle background accent -->
-        <div
-            class="absolute top-0 right-0 w-96 h-96 bg-[#FFD6A5]/10 rounded-full blur-3xl"
+
+  <!-- Hero Section -->
+  <div
+    class="relative min-h-[65vh] sm:min-h-[70vh] lg:min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-[#F7F7F7] to-white overflow-hidden"
+  >
+    <!-- Background Image w/ Overlay -->
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('/about_hero.jpg');"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-[#1E2A38]/80 via-[#1E2A38]/60 to-[#1E2A38]/40"
+      aria-hidden="true"
+    ></div>
+    <!-- Content Container -->
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+      <div class="text-center transition-all duration-1000 ease-out transform">
+        <!-- Heading -->
+        <div class="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
+          <h1 class="text-2xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+            About The Little Haven
+          </h1>
+          <div class="inline-flex items-center justify-center px-4 py-2 bg-[#FF6B6B]/20 backdrop-blur-sm rounded-full border border-[#FF6B6B]/30">
+            <p class="text-base sm:text-lg lg:text-2xl font-semibold text-[#FF6B6B] text-center">
+              Trusted Ladies Hostel in Kochi & Kalamassery Since 2004
+            </p>
+          </div>
+        </div>
+        <!-- Description -->
+        <div class="mb-8 sm:mb-12">
+          <p class="text-sm xs:text-base sm:text-lg lg:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed font-medium">
+            For over 20 years, The Little Haven has been a trusted ladies hostel in Kochi,
+            offering a safe and homely stay for students and working women. Located near
+            CUSAT and Kalamassery Metro Station, we are among the most reliable womens hostels
+            in Ernakulam, combining comfort, security, and community living.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative Elements -->
+    <div class="absolute top-1/4 left-2 sm:left-8 w-12 h-12 sm:w-16 sm:h-16 bg-[#4ECDC4]/20 rounded-full blur-xl"></div>
+    <div class="absolute bottom-1/3 right-2 sm:right-8 w-14 h-14 sm:w-20 sm:h-20 bg-[#FFD6A5]/20 rounded-full blur-xl"></div>
+  </div>
+
+  <!-- Main Content Section -->
+  <section class="py-14 sm:py-20 md:py-28 bg-white animate-on-scroll">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+        <!-- Text -->
+        <div>
+          <div class="space-y-6 md:space-y-8">
+            <p class="text-base sm:text-lg text-[#1E2A38]/80 leading-relaxed font-light">
+              The Little Haven Ladies Hostel has for more than 20 years provided a safe and nurturing
+              home for girl students of nearby colleges and educational institutions that includes SCMS,
+              NUALS, Cochin University, Rajagiri College, Kappans, IBIS etc. Recognized as
+              one of the leading womens hostels in Kochi, we continue to be a preferred choice for those
+              seeking both convenience and security. Whether you are a student looking for a student hostel
+              in Kalamassery or a professional searching for a hostel for working women in Kochi,
+              we provide the perfect solution.
+            </p>
+            <p class="text-base sm:text-lg text-[#1E2A38]/80 leading-relaxed font-light">
+              The purpose is to make every resident feel at home while studying or taking up a career.
+              The hostel has a close-knit, family-like atmosphere where safety, hygiene, and personal growth are given utmost importance, making it a safe ladies hostel in Kochi with food and
+              modern amenities.
+            </p>
+          </div>
+        </div>
+        <!-- Image -->
+        <div>
+          <div class="aspect-[4/3] bg-[#F7F7F7] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="/accomodation.webp"
+              alt="The Little Haven Ladies Hostel - Safe and modern accommodation for women"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values Section -->
+  <section class="py-14 sm:py-20 md:py-28 bg-[#F7F7F7]/50 animate-on-scroll">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Header -->
+      <div class="text-center mb-10 sm:mb-16">
+        <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold text-[#1E2A38] mb-4 sm:mb-6">
+          Our Values
+        </h2>
+        <div class="w-12 h-1 sm:w-16 bg-[#4ECDC4] mx-auto rounded-full"></div>
+      </div>
+      <!-- Values Grid -->
+      <div class="grid gap-6 sm:gap-8 md:grid-cols-2">
+        <!-- Value 1 -->
+        <article
+          class="group bg-white rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
         >
-        </div>
-
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <!-- Clean icon treatment -->
-            <div
-                class="inline-flex items-center justify-center w-20 h-20 bg-[#FF6B6B]/10 rounded-full mb-8"
-            >
-                <svg
-                    class="w-10 h-10 text-[#FF6B6B]"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"
-                    ></path>
-                </svg>
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#FF6B6B]/10 rounded-xl flex items-center justify-center group-hover:bg-[#FF6B6B]/20 transition-colors duration-300">
+              <svg class="w-6 h-6 sm:w-8 sm:h-8 text-[#FF6B6B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"></path>
+              </svg>
             </div>
-
-            <!-- Refined typography -->
-            <h1
-                class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1E2A38] mb-8 leading-tight max-w-4xl mx-auto"
-            >
-                The Little Haven Ladies Hostel – Established 2004
-            </h1>
-
-            <!-- Simple accent line -->
-            <div class="w-24 h-1 bg-[#4ECDC4] mx-auto rounded-full"></div>
-        </div>
-    </section>
-
-    <!-- Main Content Section - Improved spacing and layout -->
-    <section class="py-20 md:py-28 bg-white animate-on-scroll">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Content Column -->
-                <div>
-                    <div class="space-y-8">
-                        <p
-                            class="text-base md:text-lg text-[#1E2A38]/80 leading-relaxed font-light"
-                        >
-                            The Little Haven Ladies Hostel has for more than 20
-                            years provided a safe and nurturing home for girl
-                            students of nearby colleges and other educational
-                            institutions that includes SCMS, NUALS, Cochin
-                            University, Rajagiri College, Kappans, IBIS etc. It
-                            is owned and directly managed by the former
-                            principal of a well-known school in Cochin City
-                            after retirement. Recognized as one of the leading
-                            womens hostels in Kochi, we continue to be a
-                            preferred choice for those seeking both convenience
-                            and security. Whether you are a student looking for
-                            a student hostel in Kalamassery or a professional
-                            searching for a hostel for working women in Kochi,
-                            we provide the perfect solution.
-                        </p>
-                        <p
-                            class="text-base md:text-lg text-[#1E2A38]/80 leading-relaxed font-light"
-                        >
-                            The purpose is to make every resident feel at home
-                            while studying or taking up a career. The hostel has
-                            a close-knit, family-like atmosphere where safety,
-                            hygiene, and personality development are given
-                            utmost importance, making it a safe ladies hostel in
-                            Kochi with food and modern amenities.
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div
-                        class="aspect-[4/3] bg-[#F7F7F7] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    >
-                        <img
-                            src="/placeholder.svg?height=400&width=500"
-                            alt="The Little Haven Ladies Hostel - Safe and modern accommodation for women"
-                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                </div>
+            <div>
+              <h3 class="text-lg sm:text-2xl font-semibold text-[#1E2A38] mb-1 sm:mb-3">
+                Safety and comfort
+              </h3>
+              <p class="text-[#1E2A38]/70 leading-relaxed text-base sm:text-lg">
+                Secure and serene environment for students and professionals
+              </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Our Values Section - Clean grid layout -->
-    <section class="py-20 md:py-28 bg-[#F7F7F7]/50 animate-on-scroll">
-        <div class="max-w-6xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-[#1E2A38] mb-6">
-                    Our Values
-                </h2>
-                <div class="w-16 h-1 bg-[#4ECDC4] mx-auto rounded-full"></div>
+          </div>
+        </article>
+        <!-- Value 2 -->
+        <article
+          class="group bg-white rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#4ECDC4]/10 rounded-xl flex items-center justify-center group-hover:bg-[#4ECDC4]/20 transition-colors duration-300">
+              <svg class="w-6 h-6 sm:w-8 sm:h-8 text-[#4ECDC4]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+              </svg>
             </div>
-
-            <!-- Values Grid - Cleaner cards -->
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Value 1: Safety -->
-                <article
-                    class="group bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                >
-                    <div class="flex items-start gap-6">
-                        <div
-                            class="flex-shrink-0 w-16 h-16 bg-[#FF6B6B]/10 rounded-xl flex items-center justify-center group-hover:bg-[#FF6B6B]/20 transition-colors duration-300"
-                        >
-                            <svg
-                                class="w-8 h-8 text-[#FF6B6B]"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"
-                                ></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-2xl font-semibold text-[#1E2A38] mb-3"
-                            >
-                                Safety above everything else
-                            </h3>
-                            <p
-                                class="text-[#1E2A38]/70 leading-relaxed text-lg"
-                            >
-                                Secure and serene environments for
-                                college-educated women
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Value 2: Hygiene -->
-                <article
-                    class="group bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                >
-                    <div class="flex items-start gap-6">
-                        <div
-                            class="flex-shrink-0 w-16 h-16 bg-[#4ECDC4]/10 rounded-xl flex items-center justify-center group-hover:bg-[#4ECDC4]/20 transition-colors duration-300"
-                        >
-                            <svg
-                                class="w-8 h-8 text-[#4ECDC4]"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                                ></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-2xl font-semibold text-[#1E2A38] mb-3"
-                            >
-                                Clean and hygienic living
-                            </h3>
-                            <p
-                                class="text-[#1E2A38]/70 leading-relaxed text-lg"
-                            >
-                                The rooms and common areas are kept and cleaned
-                                regularly
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Value 3: Convenience -->
-                <article
-                    class="group bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                >
-                    <div class="flex items-start gap-6">
-                        <div
-                            class="flex-shrink-0 w-16 h-16 bg-[#FFD6A5]/20 rounded-xl flex items-center justify-center group-hover:bg-[#FFD6A5]/30 transition-colors duration-300"
-                        >
-                            <svg
-                                class="w-8 h-8 text-[#FF6B6B]"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                                ></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-2xl font-semibold text-[#1E2A38] mb-3"
-                            >
-                                Convenience
-                            </h3>
-                            <p
-                                class="text-[#1E2A38]/70 leading-relaxed text-lg"
-                            >
-                                Centrally situated near colleges, businesses,
-                                and the Cochin University Metro Station—ideal
-                                for those seeking a ladies hostel near
-                                Kalamassery or a PG near Kalamassery metro
-                                station.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Value 4: Community -->
-                <article
-                    class="group bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                >
-                    <div class="flex items-start gap-6">
-                        <div
-                            class="flex-shrink-0 w-16 h-16 bg-[#4ECDC4]/10 rounded-xl flex items-center justify-center group-hover:bg-[#4ECDC4]/20 transition-colors duration-300"
-                        >
-                            <svg
-                                class="w-8 h-8 text-[#4ECDC4]"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99L12 11.9 10.01 8.99A2.5 2.5 0 0 0 8 8H5.46c-.8 0-1.49.59-1.42 1.37L6.5 16H9v6h2v-6h2v6h2z"
-                                ></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3
-                                class="text-2xl font-semibold text-[#1E2A38] mb-3"
-                            >
-                                Community living
-                            </h3>
-                            <p
-                                class="text-[#1E2A38]/70 leading-relaxed text-lg"
-                            >
-                                An environment in which professionals and
-                                students coexist and develop together,
-                                reflecting the true spirit of a premium women’s
-                                PG Kochi.
-                            </p>
-                        </div>
-                    </div>
-                </article>
+            <div>
+              <h3 class="text-lg sm:text-2xl font-semibold text-[#1E2A38] mb-1 sm:mb-3">
+                Clean and hygienic living
+              </h3>
+              <p class="text-[#1E2A38]/70 leading-relaxed text-base sm:text-lg">
+                The rooms and common areas are well kept and cleaned regularly
+              </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Our Journey Section - Reversed layout -->
-    <section class="py-20 md:py-28 bg-white animate-on-scroll">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Image Column -->
-                <div class="lg:order-1">
-                    <div
-                        class="aspect-[4/3] bg-[#F7F7F7] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    >
-                        <img
-                            src="/placeholder.svg?height=400&width=500"
-                            alt="Community living at The Little Haven - Students and professionals together"
-                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                </div>
-
-                <!-- Content Column -->
-                <div class="lg:order-2">
-                    <h3
-                        class="text-3xl md:text-4xl font-bold text-[#1E2A38] mb-8"
-                    >
-                        Our Journey
-                    </h3>
-                    <p
-                        class="text-xl md:text-2xl text-[#1E2A38]/80 leading-relaxed font-light"
-                    >
-                        The years have witnessed The Little Haven grow from
-                        being a hostel to a trusted home and a consistent
-                        support system for the girls who travel to Ernakulam for
-                        shaping their future. Today, we proudly stand as one of
-                        the most reliable girls hostels near CUSAT Kalamassery
-                        and budget ladies hostels in Ernakulam, offering a
-                        secure haven for both students and working women.
-                    </p>
-                </div>
+          </div>
+        </article>
+        <!-- Value 3 -->
+        <article
+          class="group bg-white rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#FFD6A5]/20 rounded-xl flex items-center justify-center group-hover:bg-[#FFD6A5]/30 transition-colors duration-300">
+              <svg class="w-6 h-6 sm:w-8 sm:h-8 text-[#FF6B6B]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+              </svg>
             </div>
-        </div>
-    </section>
-
-    <!-- Call to Action Section - Simplified and focused -->
-    <section class="py-20 bg-[#F7F7F7]/50 animate-on-scroll">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="bg-white rounded-3xl p-12 md:p-16 shadow-lg">
-                <h4 class="text-3xl md:text-4xl font-bold text-[#1E2A38] mb-6">
-                    Ready to Make The Little Haven Your Home?
-                </h4>
-
-                <p
-                    class="text-xl text-[#1E2A38]/70 mb-10 font-light leading-relaxed max-w-2xl mx-auto"
-                >
-                    Join our community of empowered women in a safe, nurturing
-                    environment.
-                </p>
-
-                <!-- Clean CTA buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a
-                        href="/contact"
-                        class="px-8 py-4 bg-[#FF6B6B] text-white font-semibold text-lg rounded-xl hover:bg-[#FF6B6B]/90 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
-                    >
-                        Contact Us Today
-                    </a>
-                </div>
+            <div>
+              <h3 class="text-lg sm:text-2xl font-semibold text-[#1E2A38] mb-1 sm:mb-3">
+                Convenience
+              </h3>
+              <p class="text-[#1E2A38]/70 leading-relaxed text-base sm:text-lg">
+                Centrally situated near colleges, institutions and the Cochin University Metro Station—ideal for those seeking a ladies hostel near Kalamassery or a PG near Kalamassery metro station.
+              </p>
             </div>
+          </div>
+        </article>
+        <!-- Value 4 -->
+        <article
+          class="group bg-white rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+        >
+          <div class="flex items-start gap-4 sm:gap-6">
+            <div class="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#4ECDC4]/10 rounded-xl flex items-center justify-center group-hover:bg-[#4ECDC4]/20 transition-colors duration-300">
+              <svg class="w-6 h-6 sm:w-8 sm:h-8 text-[#4ECDC4]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99L12 11.9 10.01 8.99A2.5 2.5 0 0 0 8 8H5.46c-.8 0-1.49.59-1.42 1.37L6.5 16H9v6h2v-6h2v6h2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-2xl font-semibold text-[#1E2A38] mb-1 sm:mb-3">
+                Community living
+              </h3>
+              <p class="text-[#1E2A38]/70 leading-relaxed text-base sm:text-lg">
+                An environment in which professionals and students coexist and develop together, reflecting the true spirit of a premium women’s PG Kochi.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Journey Section -->
+  <section class="py-14 sm:py-20 md:py-28 bg-white animate-on-scroll">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+        <!-- Image -->
+        <div class="order-2 lg:order-1">
+          <div class="aspect-[4/3] bg-[#F7F7F7] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="/community.webp"
+              alt="Community living at The Little Haven - Students and professionals together"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
         </div>
-    </section>
+        <!-- Content -->
+        <div class="order-1 lg:order-2">
+          <h3 class="text-xl sm:text-3xl md:text-4xl font-bold text-[#1E2A38] mb-6 sm:mb-8">
+            Our Journey
+          </h3>
+          <p class="text-base sm:text-xl md:text-2xl text-[#1E2A38]/80 leading-relaxed font-light">
+            The years have witnessed The Little Haven grow from
+            being a hostel to a trusted home and a consistent
+            support system for the girls who travel to Ernakulam for
+            shaping their future. Today, we proudly stand as one of
+            the most reliable girls hostels near CUSAT Kalamassery, offering a
+            secure haven for both students and working women.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 sm:py-20 bg-[#F7F7F7]/50 animate-on-scroll">
+    <div class="max-w-2xl md:max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="bg-white rounded-2xl md:rounded-3xl p-8 sm:p-12 md:p-16 shadow-lg">
+        <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1E2A38] mb-4 sm:mb-6">
+          Ready to Make The Little Haven Your Home?
+        </h4>
+        <p class="text-lg sm:text-xl text-[#1E2A38]/70 mb-6 sm:mb-10 font-light leading-relaxed max-w-2xl mx-auto">
+          Join our community of empowered women in a safe, nurturing environment.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <a
+            href="/contact"
+            class="px-6 sm:px-8 py-3 sm:py-4 bg-[#FF6B6B] text-white font-semibold text-base sm:text-lg rounded-xl hover:bg-[#FF6B6B]/90 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#FF6B6B] focus:ring-opacity-50"
+          >
+            Contact Us Today
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </Layout>

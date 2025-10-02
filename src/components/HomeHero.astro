@@ -1,0 +1,194 @@
+---
+export interface Props {
+  headline?: string;
+  subheading?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  videoSources?: { src: string; type: string }[];
+  videoPoster?: string;
+  fallbackImage?: string;
+  className?: string;
+}
+
+const {
+  subheading = 'Your search for a ladies hostel in Kochi or a women’s hostel near Kalamassery Metro Station ends here. At The Little Haven, we blend safety, comfort, and affordability to create a true “home away from home” for students and working professionals. Conveniently located in the heart of Kalamassery, just a few steps away from Cochin University Metro Station and key institutions, this hostel offers not just rooms, but a haven where you can live, study, and thrive.',
+  ctaLabel = 'Get in Touch With Us!',
+  ctaHref = '/contact',
+  videoSources = [{ src: '/videodemo.mp4', type: 'video/mp4' }],
+  videoPoster,
+  fallbackImage = '/hero_fallback.webp',
+  className = '',
+} = Astro.props;
+---
+
+<section
+  class={`relative w-full h-screen overflow-hidden bg-gray-900 ${className}`}
+  data-hero-section
+>
+  <div class="absolute inset-0 w-full h-full">
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      poster={videoPoster}
+      data-hero-video
+    >
+      {videoSources.map((source) => (
+        <source src={source.src} type={source.type} />
+      ))}
+      Your browser does not support the video tag.
+    </video>
+    
+    <img
+      src={fallbackImage}
+      alt="Hero fallback"
+      class="absolute inset-0 w-full h-full object-cover hidden"
+      data-fallback-image
+    />
+  </div>
+  
+  <div class="absolute inset-0 bg-black/40 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+  
+
+  
+  <div class="relative z-10 h-full flex items-center">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <h1
+          class="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight transform translate-y-12 opacity-0 transition-all duration-1000 ease-out"
+          data-animate
+          data-delay="200"
+        >
+          <span class="bg-gradient-to-r from-[#ff6b6b] to-[#4ecdc4] bg-clip-text text-transparent">
+            The Little Haven
+          </span>
+          Ladies Hostel in Kochi - 
+          <span class="text-yellow-400">Safe Stay at Kalamassery</span>
+        </h1>
+        
+        <p
+          class="text-base md:text-lg lg:text-xl text-gray-200 mb-8 max-w-3xl leading-relaxed transform translate-y-12 opacity-0 transition-all duration-1000 ease-out"
+          data-animate
+          data-delay="400"
+        >
+          {subheading}
+        </p>
+        
+        <div
+          class="flex flex-col sm:flex-row gap-4 transform translate-y-12 opacity-0 transition-all duration-1000 ease-out"
+          data-animate
+          data-delay="600"
+        >
+          <a
+            class="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 cursor-pointer inline-block text-center"
+            href={ctaHref}
+          >
+            {ctaLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // TypeScript-enabled client-side script
+  interface VideoController {
+    video: HTMLVideoElement;
+    fallbackImage: HTMLImageElement;
+    section: HTMLElement;
+    observer: IntersectionObserver;
+  }
+
+  function initializeHeroSection(): void {
+    const section = document.querySelector('[data-hero-section]') as HTMLElement;
+    const video = document.querySelector('[data-hero-video]') as HTMLVideoElement;
+    const fallbackImage = document.querySelector('[data-fallback-image]') as HTMLImageElement;
+    const animatedElements = document.querySelectorAll('[data-animate]') as NodeListOf<HTMLElement>;
+
+    if (!section || !video) return;
+
+    const controller: VideoController = {
+      video,
+      fallbackImage,
+      section,
+      observer: new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            controller.video.play().catch(() => {
+              // Fallback to image if video fails
+              showFallbackImage();
+            });
+          } else {
+            controller.video.pause();
+          }
+        },
+        { threshold: 0.5 }
+      )
+    };
+
+    // Handle video error
+    function showFallbackImage(): void {
+      if (controller.video && controller.fallbackImage) {
+        controller.video.style.display = 'none';
+        controller.fallbackImage.classList.remove('hidden');
+      }
+    }
+
+    // Initialize animations
+    function initializeAnimations(): void {
+      setTimeout(() => {
+        animatedElements.forEach((element) => {
+          const delay = element.getAttribute('data-delay') || '0';
+          setTimeout(() => {
+            element.classList.remove('translate-y-12', 'opacity-0');
+            element.classList.add('translate-y-0', 'opacity-100');
+          }, parseInt(delay));
+        });
+      }, 100);
+    }
+
+    // Event listeners
+    controller.video.addEventListener('error', showFallbackImage);
+    controller.observer.observe(controller.section);
+
+    // Initialize animations
+    initializeAnimations();
+
+    // Cleanup function (if needed for SPA navigation)
+    const cleanup = (): void => {
+      controller.observer.disconnect();
+      controller.video.removeEventListener('error', showFallbackImage);
+    };
+
+    // Store cleanup function for potential use
+    (window as any).heroSectionCleanup = cleanup;
+  }
+
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeHeroSection);
+  } else {
+    initializeHeroSection();
+  }
+
+  // Re-initialize on navigation (for SPA behavior)
+  document.addEventListener('astro:page-load', initializeHeroSection);
+</script>
+
+<style>
+  /* Ensure proper video scaling */
+  [data-hero-video] {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Smooth transitions for animations */
+  [data-animate] {
+    transition-property: transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>

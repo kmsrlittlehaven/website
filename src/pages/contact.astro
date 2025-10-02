@@ -2,8 +2,7 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 
-const pageTitle =
-    "Contact Us | The Little Haven Ladies Hostel in Kochi";
+const pageTitle = "Contact Us | The Little Haven Ladies Hostel in Kochi";
 const pageDescription =
     "Get in touch with The Little Haven, a leading ladies hostel in Kochi. Contact us for room availability, bookings, and inquiries about our women's hostel near Kalamassery.";
 ---
@@ -12,33 +11,36 @@ const pageDescription =
     <div
         class="font-sans text-slate-800 antialiased min-h-screen bg-gradient-to-br from-[#f7f7f7] to-[#ffd6a5]"
     >
-        <main
-            id="main-content"
-            class="container mx-auto px-6 py-16 md:py-20 lg:py-24"
+        <!-- Hero Section -->
+
+        <div
+            class="relative bg-cover bg-bottom bg-no-repeat py-10 lg:py-16"
+            style="background-image: url('/contact_hero.webp');"
         >
-            <!-- Hero Section -->
-            <section
-                class="text-center max-w-4xl mx-auto mb-24 md:mb-32 animate-on-scroll"
-            >
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+            <div class="relative container mx-auto px-6 text-center md:text-left">
                 <h1
-                    class="font-bold text-4xl md:text-6xl lg:text-7xl text-slate-900 mb-6 leading-tight tracking-tight"
+                    class="font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight tracking-tight max-w-4xl"
                 >
                     Get in Touch with <span
                         class="bg-gradient-to-r from-[#ff6b6b] to-[#4ecdc4] bg-clip-text text-transparent"
                         >The Little Haven</span
                     > – Ladies Hostel in Kochi
                 </h1>
-                <p
-                    class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
-                >
+                <p class="text-lg md:text-xl text-white/90 max-w-3xl leading-relaxed">
                     Looking for a safe and homely ladies hostel near Kalamassery
                     Metro Station? We're here to answer your questions and help
                     you find the right accommodation. Whether you're a student
                     or working professional, our women's hostel in Kochi offers
                     comfort, convenience, and security.
                 </p>
-            </section>
+            </div>
+        </div>
 
+        <main
+            id="main-content"
+            class="container mx-auto px-6 py-16 md:py-20 lg:py-24"
+        >
             <!-- Contact Cards Section -->
             <section class="mb-24 md:mb-32">
                 <div class="text-center mb-16">
@@ -49,7 +51,8 @@ const pageDescription =
                     </h2>
                     <div
                         class="w-24 h-1 bg-gradient-to-r from-pink-400 to-teal-400 mx-auto rounded-full"
-                    ></div>
+                    >
+                    </div>
                 </div>
 
                 <div
@@ -70,15 +73,24 @@ const pageDescription =
                         </h3>
                         <div class="space-y-4">
                             <a
-                                href="tel:+919895011185"
+                                href="tel:+918547964256"
                                 class="flex items-center group text-lg text-slate-700 transition-all duration-200 hover:text-pink-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#4ecdc4]/30 rounded-lg p-2 -m-2"
                             >
                                 <span
                                     class="font-semibold group-hover:scale-105 transition-transform"
-                                    >+91 98950 11185</span
+                                    >+91 85479 64256</span
                                 >
                             </a>
                             <a
+                                href="tel:+916238939609"
+                                class="flex items-center group text-lg text-slate-700 transition-all duration-200 hover:text-pink-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#4ecdc4]/30 rounded-lg p-2 -m-2"
+                            >
+                                <span
+                                    class="font-semibold group-hover:scale-105 transition-transform"
+                                    >+91 62389 39609</span
+                                >
+                            </a>
+                             <a
                                 href="tel:+919895353234"
                                 class="flex items-center group text-lg text-slate-700 transition-all duration-200 hover:text-pink-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#4ecdc4]/30 rounded-lg p-2 -m-2"
                             >
@@ -131,7 +143,7 @@ const pageDescription =
                         <address
                             class="not-italic leading-relaxed font-medium text-slate-700"
                         >
-                            Near Municipal Office, Thirunilath Housing Colony,<br
+                            Near Kalamassery Municipal Office<br
                             />
                             South Kalamassery, Kalamassery, Kochi, Kerala 682033
                         </address>
@@ -141,132 +153,27 @@ const pageDescription =
 
             <!-- Location Section -->
             <section
-                class="bg-white rounded-3xl shadow-xl overflow-hidden mb-24 md:mb-32 animate-on-scroll"
+                class="bg-white rounded-3xl shadow-xl overflow-hidden mb-24 md:mb-32 mx-[10rem] animate-on-scroll"
             >
-                <div class="grid md:grid-cols-2 items-center min-h-[500px]">
-                    <div class="p-8 md:p-12 lg:p-16 order-2 md:order-1">
+                <div class="items-center">
+                    <div class="p-8 md:p-12 lg:p-16">
                         <div
                             class="w-16 h-1 bg-gradient-to-r from-pink-400 to-teal-400 mb-6 rounded-full"
-                        ></div>
+                        >
+                        </div>
                         <h2
                             class="font-bold text-3xl md:text-4xl lg:text-5xl text-slate-900 mb-6 leading-tight"
                         >
-                            Visit Us in Kalamassery
+                            Visit Us at Kalamassery
                         </h2>
                         <p class="text-slate-600 leading-relaxed text-lg">
-                            Located just a short walk from Cochin University
+                            Located just a short walk away from Cochin University
                             Metro Station, The Little Haven is easily accessible
                             to students and professionals looking for a women's
                             hostel near Kalamassery. With our central location,
                             we are one of the most convenient ladies hostels in
-                            Ernakulam for those studying or working in Kochi
-                            city.
+                            Kalamassery for those studying or working.
                         </p>
-                    </div>
-                    <div
-                        class="relative overflow-hidden order-1 md:order-2 min-h-[400px] md:min-h-full"
-                    >
-                        <img
-                            src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2070&auto=format&fit=crop"
-                            alt="A welcoming, modern, and minimal house exterior representing The Little Haven hostel in Kochi."
-                            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                            loading="lazy"
-                        />
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-pink-400/20 to-teal-400/20"
-                        ></div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Why Reach Out Section -->
-            <section class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2
-                        class="font-bold text-3xl md:text-5xl text-slate-900 mb-4 animate-on-scroll"
-                    >
-                        Why Reach Out?
-                    </h2>
-                    <div
-                        class="w-24 h-1 bg-gradient-to-r from-pink-400 to-teal-400 mx-auto rounded-full"
-                    ></div>
-                </div>
-
-                <div class="grid gap-6 md:gap-8">
-                    <div
-                        class="bg-white backdrop-blur-[10px] border border-white/20 p-8 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl animate-on-scroll"
-                        style="transition-delay: 100ms;"
-                    >
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-                            >
-                                01
-                            </div>
-                            <p class="text-slate-700 leading-relaxed text-lg">
-                                <span class="font-bold text-teal-600"
-                                    >Enquire</span
-                                >
-                                about room availability in our student hostel in
-                                Kalamassery
-                            </p>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white backdrop-blur-[10px] border border-white/20 p-8 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl animate-on-scroll"
-                        style="transition-delay: 200ms;"
-                    >
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-                            >
-                                02
-                            </div>
-                            <p class="text-slate-700 leading-relaxed text-lg">
-                                <span class="font-bold text-teal-600">Book</span
-                                >
-                                a safe stay at our hostel for working women in
-                                Kochi
-                            </p>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white backdrop-blur-[10px] border border-white/20 p-8 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl animate-on-scroll"
-                        style="transition-delay: 300ms;"
-                    >
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-                            >
-                                03
-                            </div>
-                            <p class="text-slate-700 leading-relaxed text-lg">
-                                <span class="font-bold text-teal-600">Learn</span
-                                >
-                                more about facilities, dining, and community life
-                                at our hostel
-                            </p>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white backdrop-blur-[10px] border border-white/20 p-8 rounded-2xl shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl animate-on-scroll"
-                        style="transition-delay: 400ms;"
-                    >
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-                            >
-                                04
-                            </div>
-                            <p class="text-slate-700 leading-relaxed text-lg">
-                                <span class="font-bold text-teal-600">Get</span>
-                                directions or transport options to our girls
-                                hostel near CUSAT Kalamassery
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>
