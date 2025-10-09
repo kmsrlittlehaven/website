@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thelittlehaven.co.in/sitemap-index.xml
