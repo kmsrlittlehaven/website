@@ -12,8 +12,6 @@ interface Props {
 
 const { title, description, canonical, structuredData } = Astro.props;
 const ogImage = "https://thelittlehaven.co.in/accomodation.webp";
-console.log('DEBUG: Astro.site=', Astro.site, ' import.meta.env.SITE=', import.meta.env.SITE);
-
 const businessInfo = {
   name: "The Little Haven",
   type: "Ladies Hostel",
@@ -128,7 +126,7 @@ const allSchemas = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
-
+    <meta name="google-site-verification" content="49oznyxCgKzb-oOe02B8NATJfhjc2mfq85BLO_6LbA4" />
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
