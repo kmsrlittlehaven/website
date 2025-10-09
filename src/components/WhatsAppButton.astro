@@ -222,6 +222,9 @@ import "../styles/global.css";
       this.isOpen = true;
       this.elements.popup.classList.add('show');
       this.elements.toggle.setAttribute('aria-expanded', 'true');
+
+      // Hide notification badge while popup is open
+      this.elements.badge?.classList.add('hidden');
       
       // Focus management
       setTimeout(() => {
@@ -235,6 +238,9 @@ import "../styles/global.css";
       this.isOpen = false;
       this.elements.popup.classList.remove('show');
       this.elements.toggle.setAttribute('aria-expanded', 'false');
+
+      // Show notification badge again when popup is closed
+      this.elements.badge?.classList.remove('hidden');
       
       // Return focus to toggle button
       this.elements.toggle.focus();
