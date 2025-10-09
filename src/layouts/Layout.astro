@@ -12,26 +12,7 @@ interface Props {
 
 const { title, description, canonicalURL, structuredData } =
   Astro.props;
-const currentURL = Astro.url;
-const cleanPath = currentURL.pathname.replace(/\/$/, "") || "/";
-const baseOrigin =
-  typeof Astro.site === "string" && Astro.site ? Astro.site : currentURL.origin;
-
-function safeNewURL(input: string, base: string) {
-  try {
-    return new URL(input, base).href;
-  } catch (err) {
-    try {
-      return new URL(base).href;
-    } catch {
-      return String(input);
-    }
-  }
-}
-
-const finalCanonicalURL = canonicalURL
-  ? safeNewURL(canonicalURL, baseOrigin)
-  : safeNewURL(cleanPath, baseOrigin);
+const finalCanonicalURL = new URL(canonicalURL || Astro.url.pathname, Astro.site).href;
 const ogImage = "https://thelittlehaven.co.in/accomodation.webp";
 const businessInfo = {
   name: "The Little Haven",
