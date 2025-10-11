@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://thelittlehaven.co.in',
+  site: 'https://www.thelittlehaven.co.in',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { title, description, canonical, structuredData } = Astro.props;
-const ogImage = "https://thelittlehaven.co.in/accomodation.webp";
+const ogImage = "https://www.thelittlehaven.co.in/accomodation.webp";
 const businessInfo = {
   name: "The Little Haven",
   type: "Ladies Hostel",
@@ -21,10 +21,7 @@ const businessInfo = {
   whatsapp: "+91-9895011185",
   email: "cheruvilabraham@gmail.com",
 };
-
-// Parse address into structured fields for JSON-LD
 const addressParts = businessInfo.address.split(",").map((s) => s.trim());
-// Expected format: [street1, street2, locality, "Kerala 682033"]
 const streetAddress = addressParts
   .slice(0, Math.max(0, addressParts.length - 2))
   .join(", ");
@@ -39,14 +36,13 @@ const postalCode = postalMatch ? postalMatch[0] : undefined;
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
-  "@id": "https://thelittlehaven.co.in/#organization",
+  "@id": "https://www.thelittlehaven.co.in/#organization",
   name: businessInfo.name,
   alternateName: "The Little Haven Ladies Hostel",
   description:
     "Safe and comfortable ladies hostel in Kalamassery, Kerala. Premium accommodation for working women and students.",
-  url: "https://thelittlehaven.co.in",
-  logo: "https://thelittlehaven.co.in/logo.png",
-  // Prefer JPG/PNG for best compatibility; keep an absolute URL.
+  url: "https://www.thelittlehaven.co.in",
+  logo: "https://www.thelittlehaven.co.in/logo.png",
   image: ogImage,
   telephone: businessInfo.phone,
   email: businessInfo.email,
@@ -101,8 +97,8 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://thelittlehaven.co.in/#website",
-  url: "https://thelittlehaven.co.in",
+  "@id": "https://www.thelittlehaven.co.in/#website",
+  url: "https://www.thelittlehaven.co.in",
   name: businessInfo.name,
   inLanguage: "en-IN",
 };
