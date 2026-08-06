@@ -7,11 +7,17 @@ interface Props {
   title: string;
   description: string;
   canonical: string;
+  ogImage?: string;
   structuredData?: object;
 }
 
-const { title, description, canonical, structuredData } = Astro.props;
-const ogImage = "https://www.thelittlehaven.co.in/accomodation.webp";
+const {
+  title,
+  description,
+  canonical,
+  ogImage = "https://www.thelittlehaven.co.in/accomodation.webp",
+  structuredData,
+} = Astro.props;
 const businessInfo = {
   name: "The Little Haven",
   type: "Ladies Hostel",
@@ -102,11 +108,54 @@ const websiteSchema = {
   name: businessInfo.name,
   inLanguage: "en-IN",
 };
+
+const pathname = Astro.url.pathname;
+const cleanPathname = pathname.replace(/\/$/, "");
+
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: "Home",
+    item: "https://www.thelittlehaven.co.in/",
+  },
+];
+
+if (cleanPathname === "/about") {
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position: 2,
+    name: "About Us",
+    item: "https://www.thelittlehaven.co.in/about",
+  });
+} else if (cleanPathname === "/facilities") {
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position: 2,
+    name: "Facilities",
+    item: "https://www.thelittlehaven.co.in/facilities",
+  });
+} else if (cleanPathname === "/contact") {
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position: 2,
+    name: "Contact Us",
+    item: "https://www.thelittlehaven.co.in/contact",
+  });
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems,
+};
+
 const allSchemas = {
   "@context": "https://schema.org",
   "@graph": [
     organizationSchema,
     websiteSchema,
+    breadcrumbSchema,
     ...(structuredData ? [structuredData] : []),
   ],
 };
@@ -123,6 +172,12 @@ const allSchemas = {
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="49oznyxCgKzb-oOe02B8NATJfhjc2mfq85BLO_6LbA4" />
+    <!-- Geo Meta Tags (Local SEO) -->
+    <meta name="geo.region" content="IN-KL" />
+    <meta name="geo.placename" content="Kalamassery, Kochi" />
+    <meta name="geo.position" content="10.044913;76.315250" />
+    <meta name="ICBM" content="10.044913, 76.315250" />
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -130,6 +185,7 @@ const allSchemas = {
     <meta name="theme-color" content="#ffffff" />
 
     <!-- Open Graph (Social & WhatsApp) -->
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
@@ -140,7 +196,7 @@ const allSchemas = {
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="The Little Haven - Ladies Hostel in Kalamassery"
+      content="The Little Haven - Ladies Hostel in Kalamassery, Kochi"
     />
     <meta property="og:site_name" content="The Little Haven" />
 
@@ -149,6 +205,7 @@ const allSchemas = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="The Little Haven - Ladies Hostel in Kalamassery, Kochi" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(allSchemas)} />

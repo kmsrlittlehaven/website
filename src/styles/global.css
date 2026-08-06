@@ -11,6 +11,22 @@
   transform: translateY(0);
 }
 @theme {
+  --color-coral-50: #fef7f7;
+  --color-coral-100: #fee2e2;
+  --color-coral-400: #ff6b6b;
+  --color-coral-500: #ff6b6b;
+  --color-coral-600: #e55656;
+  --color-peach-50: #fffbf5;
+  --color-peach-100: #fff4e6;
+  --color-peach-400: #ffcc80;
+  --color-peach-500: #ffd6a5;
+  --color-peach-600: #e6c195;
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-400: #4ecdc4;
+  --color-teal-500: #4ecdc4;
+  --color-teal-600: #45b8b0;
+
   --animate-fadeIn: fadeIn 1s ease-in-out;
   --animate-fadeOut: fadeOut 1s ease-in-out;
   --animate-scale: scale 0.5s ease-in-out;

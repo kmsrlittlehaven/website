@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "cp .assetsignore dist/",
+    "postbuild": "node -e \"import('fs').then(fs => fs.copyFileSync('.assetsignore', 'dist/.assetsignore'))\"",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.1.13",
-    "astro": "^5.14.6",
+    "astro": "^7.1.6",
     "tailwindcss": "^4.1.13"
   }
 }
